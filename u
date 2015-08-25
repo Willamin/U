@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+if ARGV.length == 0
+  abort 'Please provide a command'
+end
+
+def require_dir(dir)
+  Dir[File.join(__dir__, dir, '*.rb')].each { |file| require_relative file[0..-4] }
+end
+
+def require_uscripts
+  Dir[File.join(Dir.pwd, '*.uscript.rb')].each { |file| require_relative file[0..-4] }
+end
+
+require 'pry'
+require 'terminal-notifier'
+
+THIS_FILE = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+$LOAD_PATH.unshift "#{File.dirname(THIS_FILE)}/lib"
+$LOAD_PATH.unshift "#{File.dirname(THIS_FILE)}/ext"
+
+require 'u'
+require 'package'
+
+U::Package.bootstrap U::CONFIG_DIR
+
+
+require_dir 'ext' # The extension libraries that may be needed by packages
+require_dir 'packages' # The actual scripts that will be registered
+
+require_uscripts
+
+command = ARGV.join(' ').split(':', 2)
+script_name = command.shift
+
+arguments = command.join.strip.split(' ')
+
+if script = U::Package.scripts[script_name]
+  parameters = script.parameters.flatten.reject { |p| p == :opt }
+
+  if arguments.length != parameters.length
+    case parameters.length
+    when 0
+      U::Package.uprint "The command \"#{script_name}\" takes no parameters"
+      exit 0
+    when 1
+      U::Package.uprint "The command \"#{script_name}\" requires a #{parameters.join}"
+      exit 0
+    when 2
+      U::Package.uprint "The command \"#{script_name}\" requires #{parameters.join(' and ')}"
+      exit 0
+    else
+      last_arg = parameters.pop
+      U::Package.uprint "The command \"#{script_name}\" requires #{parameters.join(', ')}, and #{last_arg}"
+      exit 0
+    end
+  end
+
+  begin
+    if arguments.empty?
+      script.call
+    else
+      script.call *arguments
+    end
+  rescue U::Core::FeatureDisabled => e
+    U::Package.uprint "Error calling '#{script_name}'", :error 
+    U::Package.uprint e, :error
+  end
+
+else
+  U::Package.uprint "No script matching \"#{ARGV.join(' ')}\""
+end

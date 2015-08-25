@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'pry'
+gem 'pony'
+gem 'terminal-notifier'
+gem 'colorize'
+gem 'mechanize'
+gem 'ruby-progressbar'
+gem 'tweetstream'
+gem 'eventmapper'
+gem 'typhoeus'
+gem 'pry'
