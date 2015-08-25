@@ -94,3 +94,20 @@ Access settings in the users ~/.u/config file
 settings.some_property
 ```
 
+
+### Required API Keys and Environment Vars for Full Functionality
+
+Services used:
+
+* [Pushover](https://pushover.net/) for mobile notifications
+* [Alchemy](http://www.alchemyapi.com/) for webpage text extraction
+
+Environment Variables:
+
+* PUSHOVER_USER_KEY
+* PUSHOVER_APP_TOKEN
+* ALCHEMY_TOKEN
+* U_SMTP_ADDRESS
+* U_SMTP_PORT
+* U_EMAIL_ADDRESS
+* U_EMAIL_PASSWORD
