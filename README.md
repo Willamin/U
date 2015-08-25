@@ -59,10 +59,10 @@ U configuration is stored as a JSON file. The default configuration is stored in
 Example JSON configuration
 
 ```
-	{
-		"colorize": true			// make the output look pretty
-		"personal_email": "foo@gmail.com"	// where email goes by default
-	}
+{
+	"colorize": true			// make the output look pretty
+	"personal_email": "foo@gmail.com"	// where email goes by default
+}
 ```
 
 ### Available Built-ins for Scripts
