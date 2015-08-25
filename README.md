@@ -34,7 +34,7 @@ You can call methods that don't take parameters like so:
 
 	u about
 
-Fetch and set your background to a randomly selected nature image from wallbase
+Fetch and set your background to a randomly selected nature image from wallhaven
 
 	u get a wallpaper: 2560x1440 Mountains // OS X specific
 
@@ -47,7 +47,7 @@ Use the example.rb file in the packages folder as an easy way to get started wri
 
 ### Features
 
-* If a script completes when the Terminal doesn't have focus it will send you a notification.
+* If a script completes when the iTerm2 doesn't have focus it will send you a notification.
 * Builtin text extraction for web pages
 * Notify yourself of finished jobs with Pushover
 
@@ -82,9 +82,9 @@ Send an email
 email to: me, subject: 'U is awesome', body: 'Some plain text goes here'
 ```
 
-Available levels are :error, :warn, or nil by default. If the terminal doesn't
-have focus when the message is printed it will send a notification to OS X
-Notification Center.
+Print messages to STDOUT with optional color levels. Available levels are
+:error, :warn, or nil by default. If iTerm2 doesn't have focus when the message
+is printed it will send a notification to OS X Notification Center.
 ```
 uprint(message, :level) # level is a symbol or nil by default
 ```
