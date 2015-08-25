@@ -47,7 +47,7 @@ Use the example.rb file in the packages folder as an easy way to get started wri
 
 ### Features
 
-* If a script completes when the iTerm2 doesn't have focus it will send you a notification.
+* If a script completes when iTerm2 doesn't have focus it will send you a notification.
 * Builtin text extraction for web pages
 * Notify yourself of finished jobs with Pushover
 
