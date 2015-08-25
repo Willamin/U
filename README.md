@@ -26,17 +26,17 @@ Assuming "/usr/local/bin/u" is in your $PATH you can now run "u" from anywhere o
 
 You can call a script and provide parameters like so:
 
-	`u extract article: http://medium.com/some-article-to-read-later`	
+	u extract article: http://medium.com/some-article-to-read-later
 
 Where the script name follows "u" and the parameters follow the colon.
 
 You can call methods that don't take parameters like so:
 
-	`u about`
+	u about
 
 Fetch and set your background to a randomly selected nature image from wallbase
 
-	`u get a wallpaper: 2560x1440 Mountains // OS X specific`
+	u get a wallpaper: 2560x1440 Mountains // OS X specific
 
 ### Write your own scripts
 
@@ -58,7 +58,7 @@ U configuration is stored as a JSON file. The default configuration is stored in
 
 Example JSON configuration
 
-```json
+```
 	{
 		"colorize": true			// make the output look pretty
 		"personal_email": "foo@gmail.com"	// where email goes by default
@@ -68,19 +68,29 @@ Example JSON configuration
 ### Available Built-ins for Scripts
 
 Provides email address set to "personal_email"
-`me`
+```
+me
+```
 
 Send a notification to your pushover devices, requires API keys
-`notify(message)`
+```
+notify(message)
+```
 
 Send an email
-`email to: me, subject: 'U is awesome', body: 'Some plain text goes here'`
+```
+email to: me, subject: 'U is awesome', body: 'Some plain text goes here'
+```
 
 Available levels are :error, :warn, or nil by default. If the terminal doesn't
 have focus when the message is printed it will send a notification to OS X
 Notification Center.
-`uprint(message, :level) # level is a symbol or nil by default`
+```
+uprint(message, :level) # level is a symbol or nil by default
+```
 
 Access settings in the users ~/.u/config file
-`settings.some_property`
+```
+settings.some_property
+```
 
