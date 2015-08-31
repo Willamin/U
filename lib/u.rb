@@ -1,7 +1,7 @@
 require 'pathname'
 
 module U
-  VERSION = '0.1.2'
+  VERSION = '1.0.0'
   ROOT_DIR = Pathname.new(File.join(__dir__, '../')).expand_path.to_s
   CONFIG_DIR = "#{Dir.home}/.u"
   PACKAGE_DIR = File.join CONFIG_DIR, 'packages'

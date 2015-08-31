@@ -10,7 +10,7 @@ module U::Core::Alchemy
       @api_key = ENV['ALCHEMY_TOKEN']
 
       if @api_key.nil?
-        raise FeatureDisabled, "Alchemy API disabled due to missing ENV Variable ALCHEMY_TOKEN."
+        raise U::Core::FeatureDisabled, "Alchemy API disabled due to missing ENV Variable ALCHEMY_TOKEN."
       end
     end
     

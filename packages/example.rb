@@ -1,5 +1,5 @@
 class Example < U::Package
-
+  include U::Core
   VERSION = U::VERSION # use "x.x.x" for your own packages
 
   script 'version' do
