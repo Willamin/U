@@ -1,5 +1,4 @@
 # U custom utilites
-## A soon to be alternative to the [girlfriend](https://github.com/icebreaker/girlfriend) gem.
 
 ### Prerequesites
 
