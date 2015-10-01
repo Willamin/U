@@ -102,8 +102,8 @@ class U::Package
     def email options = {}
       if (ENV['U_SMTP_ADDRESS'].nil? ||
         ENV['U_SMTP_PORT'].nil? ||
-        ENV['U_EMAIL_ADDRESS'] ||
-        ENV['U_EMAIL_PASSWORD'])
+        ENV['U_EMAIL_ADDRESS'].nil? ||
+        ENV['U_EMAIL_PASSWORD'].nil?)
 
         raise U::Core::FeatureDisabled, "Necessary ENV Variables are missing. Check the README for required email vars."
       end
@@ -117,7 +117,7 @@ class U::Package
           :password             => ENV.fetch('U_EMAIL_PASSWORD'),
           :authentication       => :plain
         }
-      }.merge! options
+      }.merge options
 
       Pony.mail params
     end
