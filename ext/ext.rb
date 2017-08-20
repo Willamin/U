@@ -5,4 +5,4 @@
 # DO NOT MODIFY BELOW THIS LINE
 # THIS REQUIRES THE U::Core LIBRARIES
 require 'core/notifier'
-require 'core/alchemy/client'
+require 'core/dandelion/client'

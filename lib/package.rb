@@ -109,6 +109,7 @@ class U::Package
       end
       params = {
         :via => :smtp,
+        :charset => 'utf-8',
         :via_options => {
           :address              => ENV.fetch('U_SMTP_ADDRESS'),
           :port                 => ENV.fetch('U_SMTP_PORT'),

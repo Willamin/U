@@ -99,14 +99,17 @@ settings.some_property
 Services used:
 
 * [Pushover](https://pushover.net/) for mobile notifications
-* [Alchemy](http://www.alchemyapi.com/) for webpage text extraction
+* [Dandelion](https://dandelion.eu) for webpage text extraction
 
 Environment Variables:
 
 * PUSHOVER_USER_KEY
 * PUSHOVER_APP_TOKEN
-* ALCHEMY_TOKEN
+* DANDELION_TOKEN
 * U_SMTP_ADDRESS
 * U_SMTP_PORT
 * U_EMAIL_ADDRESS
 * U_EMAIL_PASSWORD
+
+brew install sqlite sqlcipher
+gem install sqlite3 --platform=ruby -- --with-opt-dir=/usr/local/Cellar/sqlcipher/3.4.1

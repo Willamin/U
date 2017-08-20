@@ -1,4 +1,4 @@
-module U::Core::Alchemy
+module U::Core::Dandelion
   class Article
     attr_reader :url, :language, :text
 

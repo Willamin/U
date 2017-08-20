@@ -24,7 +24,6 @@ require 'package'
 
 U::Package.bootstrap U::CONFIG_DIR
 
-
 require_dir 'ext' # The extension libraries that may be needed by packages
 require_dir 'packages' # The actual scripts that will be registered
 
