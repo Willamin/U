@@ -9,7 +9,7 @@
 git clone this repository, cd into it, and then run
 
 	bundle
-	./u install to path
+	./U install to path
 
 This will symlink the "u" executable to "/usr/local/bin/u".
 Assuming "/usr/local/bin/u" is in your $PATH you can now run "u" from anywhere on the command line.
