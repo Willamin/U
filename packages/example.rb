@@ -6,6 +6,10 @@ class Example < U::Package
     uprint U::VERSION
   end
 
+  script 'time' do
+    uprint (Time.now - $start_time).round(3)
+  end
+
   script 'about' do
     uprint 'U are a conglomerate of custom utilities for Caleb Albritton\'s personal use.'
   end

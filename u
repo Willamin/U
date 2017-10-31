@@ -4,6 +4,8 @@ if ARGV.length == 0
   abort 'Please provide a command'
 end
 
+$start_time = Time.now
+
 def require_dir(dir)
   Dir[File.join(__dir__, dir, '*.rb')].each { |file| require_relative file[0..-4] }
 end
