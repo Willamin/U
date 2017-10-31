@@ -18,7 +18,6 @@ module U::Core::Dandelion
       endpoint = "#{@root}/datatxt/nex/v1?token=#{@api_key}"
       response = Typhoeus.post endpoint, body: { url: url }
       json = JSON.parse response.body
-      binding.pry
       Article.new json['url'], json['lang'], json['text']
     end
   end
