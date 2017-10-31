@@ -6,6 +6,13 @@ class Wallhaven < U::Package
   VERSION = '1.0.0'
 
   script 'get a wallpaper' do |resolution, category|
+    wall_dir = File.expand_path '~/Pictures/Wallpapers'
+
+
+    unless File.directory? wall_dir
+      uprint "#{wall_dir} must exist to use this command."
+      abort
+    end
     random_url = "https://alpha.wallhaven.cc/search?q=#{category}&categories=100&purity=100&resolutions=#{resolution}&sorting=random&order=desc"
     random_regex = /https:\/\/alpha.wallhaven.cc\/wallpaper\/\d+/
 
@@ -23,7 +30,7 @@ class Wallhaven < U::Package
 
     image = Net::HTTP.get URI.parse(image_url)
 
-    image_path = File.join(Dir.home, 'Pictures/Wallpapers', "#{SecureRandom.uuid}.jpg")
+    image_path = File.join(wall_dir, "#{SecureRandom.uuid}.jpg")
     File.open(image_path, 'w') { |file| file.write(image) }
 
     if U::OS.mac?
