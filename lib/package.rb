@@ -96,7 +96,11 @@ class U::Package
         return {frontAppName, windowTitle}
       EOS
 
-      `osascript -e '#{applescript}'`.split(' ')[0].chop.downcase
+      if U::OS.mac?
+        `osascript -e '#{applescript}'`.split(' ')[0].chop.downcase
+      else
+        nil
+      end
     end
 
     def email options = {}
