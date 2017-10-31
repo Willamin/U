@@ -8,7 +8,6 @@ class Wallhaven < U::Package
   script 'get a wallpaper' do |resolution, category|
     wall_dir = File.expand_path '~/Pictures/Wallpapers'
 
-
     unless File.directory? wall_dir
       uprint "#{wall_dir} must exist to use this command."
       abort
