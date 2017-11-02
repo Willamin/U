@@ -1,3 +1,5 @@
+require 'webrick'
+
 class FileOperations < U::Package
 
   script 'delete duplicates' do
@@ -30,4 +32,13 @@ class FileOperations < U::Package
     uprint "Deleted #{to_delete.length} duplicates."
   end
 
+  script 'serve folder' do |port|
+    server = WEBrick::HTTPServer.new Port: port, DocumentRoot: Dir.pwd
+
+    Signal.trap('INT') do
+      server.shutdown
+    end
+
+    server.start
+  end
 end
