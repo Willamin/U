@@ -1,5 +1,4 @@
-class Example < U::Package
-  include U::Core
+class Help < U::Package
   VERSION = U::VERSION # use "x.x.x" for your own packages
 
   script 'help' do
