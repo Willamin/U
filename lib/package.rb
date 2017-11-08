@@ -44,6 +44,10 @@ class U::Package
       @@scripts
     end
 
+    def get_script_params(script)
+      script.parameters.flatten.reject { |p| p == :opt }
+    end
+
     def cmd(name)
       @@scripts[name]
     end
