@@ -37,7 +37,7 @@ script_name = command.shift
 arguments = command.join.strip.split(' ')
 
 if script = U::Package.scripts[script_name]
-  parameters = script.parameters.flatten.reject { |p| p == :opt }
+  parameters = U::Package.get_script_params script
 
   if arguments.length != parameters.length
     case parameters.length
